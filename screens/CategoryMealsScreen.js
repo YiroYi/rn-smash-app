@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 
+import MealItem from '../components/MealItem';
+
 const CategoryMealScreen = props => {
   const catId = props.navigation.getParam('categoryId');
 
@@ -9,11 +11,14 @@ const CategoryMealScreen = props => {
 
   const renderMealItem = itemData => {
     return(
-      <View>
-        <Text>
-          {itemData.item.title}
-        </Text>
-      </View>
+      <MealItem
+        title={itemData.item.title}
+        duration={itemData.item.duration}
+        affordability={itemData.item.affordability}
+        complexity={itemData.item.complexity}
+        image={itemData.item.imageUrl}
+        onSelect={() => {}}
+      />
     );
   };
 
@@ -22,6 +27,7 @@ const CategoryMealScreen = props => {
       <FlatList
         data={displayMeals}
         renderItem={renderMealItem}
+        style={{width: '100%'}}
       />
     </View>
   );
