@@ -5,27 +5,36 @@ import { CATEGORIES, MEALS } from '../data/dummy-data';
 import MealItem from '../components/MealItem';
 
 const CategoryMealScreen = props => {
-  const catId = props.navigation.getParam('categoryId');
-
-  const displayMeals = MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0);
-
   const renderMealItem = itemData => {
-    return(
+    return (
       <MealItem
         title={itemData.item.title}
-        duration={itemData.item.duration}
-        affordability={itemData.item.affordability}
-        complexity={itemData.item.complexity}
         image={itemData.item.imageUrl}
-        onSelect={() => {}}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity}
+        affordability={itemData.item.affordability}
+        onSelectMeal={() => {
+          props.navigation.navigate({
+              routeName: 'MealDetail',
+              params: {
+                mealId: itemData.item.id
+              }
+          });
+        }}
       />
     );
   };
 
+  const catId = props.navigation.getParam('categoryId');
+
+  const displayedMeals = MEALS.filter(
+    meal => meal.categoryIds.indexOf(catId) >= 0
+  );
+
   return(
     <View style={styles.screen}>
       <FlatList
-        data={displayMeals}
+        data={displayedMeals}
         renderItem={renderMealItem}
         style={{width: '100%'}}
       />
@@ -47,7 +56,8 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 15
   }
 });
 

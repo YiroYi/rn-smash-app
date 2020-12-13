@@ -1,40 +1,41 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground
+} from 'react-native';
 
-import Colors from '../constants/Colors';
 const MealItem = props => {
   return (
     <View style={styles.mealItem}>
-      <TouchableOpacity onPress={props.onSelectMeal} >
+      <TouchableOpacity onPress={props.onSelectMeal}>
         <View>
-          <View style={{...styles.mealRow, ...styles.mealHeader}}>
+          <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
             <ImageBackground
-              source={{uri: props.image}}
+              source={{ uri: props.image }}
               style={styles.bgImage}
             >
-            <View style={styles.titleContainer}>
-              <Text
-                style={styles.title}
-                numberOfLines={1}
-              >{props.title}</Text>
-            </View>
+              <View style={styles.titleContainer}>
+                <Text style={styles.title} numberOfLines={1}>
+                  {props.title}
+                </Text>
+              </View>
             </ImageBackground>
           </View>
-          <View style={{...styles.mealRow, ...styles.mealDetail}}>
+          <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
             <Text>{props.duration}m</Text>
-            <Text>{props.complexity.toUpperCase()} </Text>
-            <Text>{props.affordability.toUpperCase()} </Text>
+            <Text>{props.complexity.toUpperCase()}</Text>
+            <Text>{props.affordability.toUpperCase()}</Text>
           </View>
         </View>
       </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  mealRow: {
-    flexDirection: 'row'
-  },
   mealItem: {
     height: 200,
     width: '100%',
@@ -42,8 +43,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden'
   },
+  bgImage: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'flex-end',
+  },
+  mealRow: {
+    flexDirection: 'row'
+  },
   mealHeader: {
-    height: '85%',
+    height: '85%'
   },
   mealDetail: {
     paddingHorizontal: 10,
@@ -51,15 +60,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: '15%'
   },
-  bgImage: {
-    width: '100%',
-    height: '100%',
-    justifyContent: 'flex-end'
-  },
   titleContainer: {
-    backgroundColor: 'rgba(0,0,0,0.7)',
+    backgroundColor: 'rgba(0,0,0,0.5)',
     paddingVertical: 5,
-    paddingHorizontal: 12,
+    paddingHorizontal: 12
   },
   title: {
     fontFamily: 'open-sans-bold',
@@ -69,5 +73,5 @@ const styles = StyleSheet.create({
   }
 });
 
+export default MealItem;
 
-export default MealItem
