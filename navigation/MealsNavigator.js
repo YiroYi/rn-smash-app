@@ -11,7 +11,7 @@ const MealsNavigator = createStackNavigator({
   Categories: {
     screen:CategoriesScreen,
     navigationOptions: {
-      headerTitle: 'Pokemon Categories'
+      headerTitle: 'Meal Categories'
     }
   },
   CategoryMeals: {
