@@ -1,0 +1,8 @@
+this.,id,=,id,this.id=id
+this., categoryIds,=, categoryIds,this. categoryIds= categoryIds
+this., name,=, name,this. name= name
+this., typeOne,=, typeOne,this. typeOne= typeOne
+this., typeTwo,=, typeTwo,this. typeTwo= typeTwo
+this., hp,=, hp,this. hp= hp
+this., attack,=, attack,this. attack= attack
+this., defense,=, defense,this. defense= defense
