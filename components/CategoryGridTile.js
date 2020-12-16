@@ -23,9 +23,12 @@ const CategoryGridTile = props => {
           >{props.title} </Text>
         </View>
       </TouchableCmp>
+      <Button title="Testing Button" onPress={()=>{}}/>
     </View>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   gridItem: {
