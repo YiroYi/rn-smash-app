@@ -15,6 +15,13 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 
 import Colors from '../constants/Colors';
 
+const defaultStackNavOptions = {
+  headerStyle: {
+    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+  },
+  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+}
+
 const MealsNavigator = createStackNavigator({
   Categories: {
     screen:CategoriesScreen,
@@ -30,12 +37,14 @@ const MealsNavigator = createStackNavigator({
   },
   MealDetail: MealDetailScreen
 },{
-  defaultNavigationOptions: {
-    headerStyle: {
-      backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
-  }
+  defaultNavigationOptions: defaultStackNavOptions
+});
+
+const FavNavigator = createStackNavigator({
+  Favorites: FavoritesScreen,
+  MealDetail: MealDetailScreen
+},{
+  defaultNavigationOptions: defaultStackNavOptions
 });
 
 const tabsScreenConfig = {
@@ -55,7 +64,7 @@ const tabsScreenConfig = {
             }
           },
     Favorites: {
-                screen:FavoritesScreen,
+                screen: FavNavigator,
                 navigationOptions: {
                   tabBarLabel: 'Favorites',
                   tabBarIcon: (tabInfo) => {
