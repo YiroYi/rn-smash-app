@@ -19,7 +19,8 @@ const defaultStackNavOptions = {
   headerStyle: {
     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
   },
-  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
+  headerTitle: 'A Screen'
 }
 
 const MealsNavigator = createStackNavigator({
@@ -60,7 +61,7 @@ const tabsScreenConfig = {
                        />
                 );
               },
-            tabBarColor: Colors.primaryColor
+              tabBarColor: Colors.primaryColor
             }
           },
     Favorites: {
